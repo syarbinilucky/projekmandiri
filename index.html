@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COUNTDOWN</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body>
+    <main class="container">
+        <div class="card">
+            <div class="card body">
+                <h2>
+                    SELAMAT DATANG 2023
+                </h2>
+                <!-- <div class="img">
+                    <img src="lombokcyber.jpg"alt="jangan diklik">
+                </div> -->
+                <div class="time-section">
+                    <div id="days" class="value">00</div>
+                    <div class="time-label">Days</div>
+                </div>
+                <div class="time-section">
+                    <div id="hours" class="value">00</div>
+                    <div class="time-label">Hours</div>
+                </div>
+                <div class="time-section">
+                    <div id="minutes" class="value">00</div>
+                    <div class="time-label">Minutes</div>
+                </div>
+                <div class="time-section">
+                    <div id="seconds" class="value">00</div>
+                    <div class="time-label">Seconds</div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+           <div class="card">
+         <H6>Copyright by@syarbinilucky</H6>
+           </div>
+        </div>
+    </main>
+    <script>
+        let selamathariulangtahun = new Date("2022-10-30 12:00 ")
+        let daysId = document.getElementById('days');
+        let hoursId = document.getElementById('hours');
+        let minutesId = document.getElementById('minutes');
+        let secondsId = document.getElementById('seconds');
+
+        setInterval(function(){
+            var now =new Date();
+            var timeLeft = (selamathariulangtahun - now) / 1000;
+            updateclock(timeLeft);
+            // console.log("hshshs")
+        },1000);
+        function updateclock(remainingTime){
+
+        let days = Math.floor(remainingTime / 86400);
+        remainingTime -= days * 86400;
+
+        let hours = Math.floor(remainingTime /3600) % 24;
+        remainingTime -= hours *3600;
+
+        let minutes = Math.floor(remainingTime /60)% 60;
+        remainingTime -= minutes *60;
+        console.log(remainingTime)
+    
+
+        let seconds = Math.floor(remainingTime);
+        remainingTime -= seconds *60;
+
+        daysId.innerHTML = number(days);
+        hoursId.innerHTML = number(hours);
+        minutesId.innerHTML = number(minutes);
+        secondsId.innerHTML = number(seconds);
+
+    }
+    
+    function number(number){
+            return number < 10 ?"0" + number : number;
+    }
+    </script>
+    
+</body>
+</html>
